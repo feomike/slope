@@ -82,7 +82,7 @@ drop table if exists hmda.ffiec_g1_2010;
 create table hmda.ffiec_g1_2010 as select * from hmda.ffiec_lar_2010
 	where respondent_id = '0000061650' and agency_code = '5';
 
-drop table if exists hmda.ffiec_g1_20111;
+drop table if exists hmda.ffiec_g1_2011;
 create table hmda.ffiec_g1_2011 as select * from hmda.ffiec_lar_2011
 	where respondent_id = '0000061650' and agency_code = '5';
 

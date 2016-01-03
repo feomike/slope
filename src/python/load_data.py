@@ -346,7 +346,7 @@ def load_lar_2004_2011():
 	mySQL = mySQL + "CREATE TABLE " + schema + "." + tb_pre + "_lar_" + year + " ( "
 	mySQL = mySQL + "as_of_date integer, respondent_id character varying(10), "
 	mySQL = mySQL + "agency_code character varying(1), loan_type integer, "
-	mySQL = mySQL + "loan_purpose integer, occupancy integer, loan_amount integer, "
+	mySQL = mySQL + "loan_purpose integer, occupancy integer, loan_amount character varying(5), "
 	mySQL = mySQL + "action_type integer, msa_md character varying(5), state_code character varying(2), "
 	mySQL = mySQL + "county_code character varying(3), census_tract character varying(7), "
 	mySQL = mySQL + "applicant_sex integer, co_applicant_sex integer, applicant_income character varying(4), "
@@ -392,7 +392,7 @@ def load_lar_2004_2011():
 	mySQL = mySQL + "to_number(substring(data,1,4), '9999') as as_of_date, substring(data,5,10) respondent_id, "
 	mySQL = mySQL + "substring(data,15,1) as agency_code, to_number(substring(data,16,1), '9') as loan_type, "
 	mySQL = mySQL + "to_number(substring(data,17,1), '9') as loan_purpose, to_number(substring(data,18,1), '9') as occupancy, "
-	mySQL = mySQL + "to_number(substring(data,19,5), '9') as loan_amount, "
+	mySQL = mySQL + "substring(data,19,5) as loan_amount, "
 	mySQL = mySQL + "to_number(substring(data,24,1), '9') action_type, substring(data,25,5) as msa_md, "
 	mySQL = mySQL + "substring(data,30,2) as state_code, "
 	mySQL = mySQL + "substring(data,32,3) as county_code, substring(data,35,7) as census_tract, "
@@ -505,9 +505,9 @@ theCur = conn.cursor()
 
 #1990 LAR has a utf-8 problem
 #the set of data on which to loop
-files = ["ts"] #"panel","ts","lar"]
+files = ["lar"] #"panel","ts","lar"]
 years = ["1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011"]
-years = ["1990"] 
+years = ["2005","2006","2007","2008","2009","2010","2011"] 
 for file in files:
 	for year in years:
 		try:
