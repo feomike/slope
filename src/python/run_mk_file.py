@@ -14,7 +14,9 @@ myPort = "5432"
 myUser = "feomike"
 db = "feomike"
 schema = "hmda"
+#myTab is used as the unique list to drive which FIs are being run
 myTab = "ffiec_ts_g1_2011"
+#myLar is used to get the unique set of geographies for this particular FI
 myLar = "ffiec_lar_2014"
 
 def returnFIList(myLoc):
@@ -63,7 +65,6 @@ theCur = conn.cursor()
 
 #open the driver table to read
 #if you want to run locations, add that switch
-#returnFIList("All")
-
+returnFIList("All")
 returnFIList("State")
  

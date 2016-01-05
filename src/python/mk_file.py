@@ -75,13 +75,12 @@ def setMeta(myFI):
 	return
 
 def returnState(myFIPS):
-	states = {"01":"Alabama","02":"Alaska","04":"Arizona","05":"Arkansas","06":"California","08":"Colorado","09":"Connecticut",
-	   "10":"Delaware","11":"District-of-Columbia","12":"Floria","13":"Georgia","15":"Hawaii","19":"Iowa","16":"Idaho","17":"Illinois",		
-	   "18":"Indiana","20":"Kansas","21":"Kentucky","22":"Lousiana","25":"Massachusetts","24":"Maryland","23":"Maine","26":"Michigan",
-	   "27":"Minnesota","29":"Missouri","28":"Mississippi","30":"Montana","37":"North-Carolina","38":"North-Dakota","31":"Nebraska","33":"New-Hampshire",
-	   "34":"New-Jersey","35":"New-Mexico","32":"Nevada","36":"New-York","39":"Ohio","40":"Oklahoma","41":"Oregon","42":"Pennsylvania",
-	   "44":"Rhode-Island","45":"South-Carolia","46":"South-Dakota","47":"Tennessee","48":"Texas","49":"Utah","51":"Virginia",
-	   "50":"Vermont","53":"Washington","55":"Wisconsin","54":"West-Virginia","56":"Wyoming"
+	states = {"01":"al","02":"ak","04":"az","05":"ar","06":"ca","08":"co","09":"ct",
+	   "10":"de","11":"dc","12":"fl","13":"ga","15":"hi","19":"ia","16":"id","17":"il",		
+	   "18":"in","20":"kn","21":"ky","22":"la","25":"ma","24":"nd","31":"ne","33":"nh",
+	   "34":"Nnj","35":"nm","32":"nv","36":"ny","39":"oh","40":"ok","41":"or","42":"pa",
+	   "44":"ri","45":"sc","46":"sd","47":"tn","48":"tx","49":"ut","51":"va",
+	   "50":"vt","53":"wa","55":"wi","54":"wv","56":"wy"
 	   }
 	state = states[myFIPS]
 	return state
@@ -97,10 +96,11 @@ years = years + ["2000","2001","2002","2003","2004","2005","2006","2007","2008"]
 years = years + ["2009","2010","2011","2012","2013","2014"]
 queries = ["all","single-family","refi","home-improvement","purchased-loan"]
 
-data = {}
-year_data = {}
-row_data = []
+
 for qry in queries:
+	data = {}
+	year_data = {}
+	row_data = []
 	for year in years:
 		#thePath = "../../data/" + rid + "-" + agency_code + "/" + myLocation + "/" + qry
 		setMeta(theFI)
@@ -138,7 +138,8 @@ for qry in queries:
 	if len(myLocation) == 2:
 		myST = returnState(myLocation)
 		myLocation = "statewide/" + myST
-	thePath = "../../data/" + rid + "-" + agency_code + "/" + myLocation + "/" + qry	
+	who = theFI.replace(" ", "-").lower()
+	thePath = "../../data/" + who + "/" + qry + "/" + myLocation
 	#see if the directory exists, if not, create it
 	#if so, overwrite the file
 	if not os.path.exists(thePath):
