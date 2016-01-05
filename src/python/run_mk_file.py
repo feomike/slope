@@ -15,7 +15,7 @@ myUser = "feomike"
 db = "feomike"
 schema = "hmda"
 #myTab is used as the unique list to drive which FIs are being run
-myTab = "ffiec_ts_g1_2011"
+myTab = "ffiec_ts_g1_2011_a"
 #myLar is used to get the unique set of geographies for this particular FI
 myLar = "ffiec_lar_2014"
 
