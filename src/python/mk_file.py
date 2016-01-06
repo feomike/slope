@@ -78,7 +78,7 @@ def returnState(myFIPS):
 	states = {"01":"al","02":"ak","04":"az","05":"ar","06":"ca","08":"co","09":"ct",
 	   "10":"de","11":"dc","12":"fl","13":"ga","15":"hi","19":"ia","16":"id","17":"il",		
 	   "18":"in","20":"kn","21":"ky","22":"la","25":"ma","23":"me","27":"mn","28":"ms",
-	   "24":"md","29":"mo","30":"mt","38":"nd","31":"ne","33":"nh","37":"nc",
+	   "24":"md","26":"mi","29":"mo","30":"mt","38":"nd","31":"ne","33":"nh","37":"nc",
 	   "34":"nj","35":"nm","32":"nv","36":"ny","39":"oh","40":"ok","41":"or","42":"pa",
 	   "44":"ri","45":"sc","46":"sd","47":"tn","48":"tx","49":"ut","51":"va",
 	   "50":"vt","53":"wa","55":"wi","54":"wv","56":"wy"
@@ -126,7 +126,7 @@ for qry in queries:
 			amtSQL = qryLoanAmount(year, rid, agency_code) + mySQL
 		if len(myLocation) == 2:
 			cntSQL = cntSQL + " and state_code = '" + myLocation + "'"
-			amtSQL = cntSQL + " and state_code = '" + myLocation + "'"
+			amtSQL = amtSQL + " and state_code = '" + myLocation + "'"
 		count = returnData(cntSQL)
 		amount = returnData(amtSQL)
 		#after you run the query populate the json
