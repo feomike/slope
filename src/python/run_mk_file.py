@@ -15,7 +15,7 @@ myUser = "feomike"
 db = "feomike"
 schema = "hmda"
 #myTab is used as the unique list to drive which FIs are being run
-myTab = "ffiec_ts_g1_2011"
+myTab = "ffiec_ts_g1_2011_a"
 #myLar is used to get the unique set of geographies for this particular FI
 myLar = "ffiec_lar_2014"
 
@@ -52,7 +52,7 @@ def runState(RID, myAC, myFI):
 	stCur = conn.cursor()
 	mySQL = "SELECT state_code FROM " + schema + "." + myLar + " WHERE "
 	mySQL = mySQL + "respondent_id = '" + RID + "' and agency_code = '" 
-	mySQL = mySQL + myAC + "' and state_code <> 'NA' GROUP BY state_code; "# limit 2; "
+	mySQL = mySQL + myAC + "' and state_code <> 'NA' GROUP BY state_code limit 10; "
 	#execute the SQL string
 	stCur.execute(mySQL)
 	#cursor through the return to get the value
@@ -75,6 +75,18 @@ def writeNames(myData):
 	with open(thePath + "/banks.json", 'w') as outfile:
 	    json.dump(myData, outfile)
 	#dumpFile(data, thePath + "/banks.json")
+
+def writeNamesFile():
+	myPath = "../../data/"
+	listfiles = os.listdir(myPath)
+	banks = []
+	for myFile in listfiles:
+		if os.path.isdir(os.path.join(myPath, myFile)):
+			banks.insert(len(banks),myFile.title())
+			#banks.add(myFile)
+	name_data = {"financialInstitutionNames":banks}
+	with open(myPath + "/banks.json", 'w') as outfile:
+	    json.dump(name_data, outfile)
 	
 #make database connection - so that we can use cursors to update the table
 myConn = "dbname=" + db + " host=" + myHost + " port=" + myPort + " user=" + myUser
@@ -85,5 +97,6 @@ theCur = conn.cursor()
 #if you want to run locations, add that switch
 returnFIList("All")
 returnFIList("State")
+writeNamesFile()
 
  

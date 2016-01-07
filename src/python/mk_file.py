@@ -66,13 +66,24 @@ def returnData(mySQL):
 #this function writes the metadata for the json file
 def setMeta(myFI):
 	#after all the years have run, paste in the header to the json file
-	data["bank"] = myFI
+	data["bank"] = myFI.title()
 	data["title"] = "Financial Institution HMDA filings"
 	data["description"] = "Bank Data"
 	data["layout"] = "bank-data"
 	data["categories"] = "chart"
 	data["type"] = "line"
 	return
+
+def writeLocationsFile(myPath):
+	listfiles = os.listdir(myPath)
+	states = []
+	for myFile in listfiles:
+		if os.path.isdir(os.path.join(myPath, myFile)):
+			states.insert(len(states),myFile)
+			#banks.add(myFile)
+	name_data = {"states":states}
+	with open(myPath + "/locations.json", 'w') as outfile:
+	    json.dump(name_data, outfile)
 
 def returnState(myFIPS):
 	states = {"01":"al","02":"ak","04":"az","05":"ar","06":"ca","08":"co","09":"ct",
@@ -96,12 +107,14 @@ years = ["1990","1991","1992","1993","1994","1995","1996","1997","1998","1999"]
 years = years + ["2000","2001","2002","2003","2004","2005","2006","2007","2008"]
 years = years + ["2009","2010","2011","2012","2013","2014"]
 queries = ["all","single-family","refi","home-improvement","purchased-loan"]
-
+queries = ["single-family","refi","home-improvement"]
 
 for qry in queries:
 	data = {}
 	year_data = {}
 	row_data = []
+	count = 0
+	amt = 0
 	for year in years:
 		#thePath = "../../data/" + rid + "-" + agency_code + "/" + myLocation + "/" + qry
 		setMeta(theFI)
@@ -129,8 +142,11 @@ for qry in queries:
 			amtSQL = amtSQL + " and state_code = '" + myLocation + "'"
 		count = returnData(cntSQL)
 		amount = returnData(amtSQL)
+		if count  == 713:
+			print "here: " + qry + " " + year + " " + myLocation
+			print cntSQL
 		#after you run the query populate the json
-		myRow = {"year":year,"count": count, "loan_amount": amount}
+		myRow = {"year": year,"count": count, "loan_amount": amount}
 		row_data.insert(len(row_data),myRow)
 	#write out the data
 	year_data["years"] = row_data
@@ -138,15 +154,20 @@ for qry in queries:
 	
 	if len(myLocation) == 2:
 		myST = returnState(myLocation)
-		myLocation = "statewide/" + myST
+		theLocation = "statewide/" + myST
+	else:
+		theLocation = myLocation
 	who = theFI.replace(" ", "-").lower()
-	thePath = "../../data/" + who + "/" + qry + "/" + myLocation
+	thePath = "../../data/" + who + "/" + qry + "/" + theLocation
 	#see if the directory exists, if not, create it
 	#if so, overwrite the file
 	if not os.path.exists(thePath):
     		os.makedirs(thePath)
-	#write out the date file
+	#write out the data file
 	dumpFile(data, thePath + "/data.json")
+	#bad implementation of writing out the locations.json file
+	if len(myLocation) == 12:
+		writeLocationsFile(thePath[:-2])
 
 theCur.close()
 conn.close()
