@@ -2,17 +2,7 @@
 import json
 import os
 import psycopg2
-import time
 import sys
-#import multiprocessing as mp
-now = time.localtime(time.time())
-print "      start time:", time.asctime(now)
-
-#arguments
-#rid = "0000061650"
-#agency_code = "5"
-#theFI = "Golden One Credit Union"
-#myLocation = "nationwide"
 
 rid = sys.argv[1]
 agency_code = sys.argv[2]
@@ -168,7 +158,5 @@ for qry in queries:
 
 theCur.close()
 conn.close()
-		
-now = time.localtime(time.time())
-print "      end time:", time.asctime(now)
+
 	
