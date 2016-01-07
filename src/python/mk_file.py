@@ -44,7 +44,8 @@ def qryCount(myYear, myRID, myAC):
 #this query gets the total loan amount for the set of lars
 def qryLoanAmount(myYear, myRID, myAC):
 	#http://stackoverflow.com/questions/10518258/typecast-string-to-integer-postgres
-	mySQL = "SELECT sum(to_number(loan_amount,'99999')) FROM "
+	#mySQL = "SELECT sum(to_number(loan_amount,'99999')) FROM "
+	mySQL = "SELECT sum(CAST(coalesce(loan_amount, '0') AS integer)) FROM " 
 	mySQL = mySQL + schema + "." + pre_tab + "_" + myYear + " WHERE respondent_id = '"
 	mySQL = mySQL  + myRID + "' AND agency_code = '" + myAC + "' "
 #	mySQL = mySQL + "group by respondent_id "	
