@@ -52,7 +52,7 @@ def runState(RID, myAC, myFI):
 	stCur = conn.cursor()
 	mySQL = "SELECT state_code FROM " + schema + "." + myLar + " WHERE "
 	mySQL = mySQL + "respondent_id = '" + RID + "' and agency_code = '" 
-	mySQL = mySQL + myAC + "' and state_code <> 'NA' GROUP BY state_code limit 10; "
+	mySQL = mySQL + myAC + "' and state_code <> 'NA' GROUP BY state_code; " # limit 10; "
 	#execute the SQL string
 	stCur.execute(mySQL)
 	#cursor through the return to get the value

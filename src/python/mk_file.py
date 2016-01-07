@@ -107,7 +107,6 @@ years = ["1990","1991","1992","1993","1994","1995","1996","1997","1998","1999"]
 years = years + ["2000","2001","2002","2003","2004","2005","2006","2007","2008"]
 years = years + ["2009","2010","2011","2012","2013","2014"]
 queries = ["all","single-family","refi","home-improvement","purchased-loan"]
-queries = ["single-family","refi","home-improvement"]
 
 for qry in queries:
 	data = {}
@@ -142,9 +141,6 @@ for qry in queries:
 			amtSQL = amtSQL + " and state_code = '" + myLocation + "'"
 		count = returnData(cntSQL)
 		amount = returnData(amtSQL)
-		if count  == 713:
-			print "here: " + qry + " " + year + " " + myLocation
-			print cntSQL
 		#after you run the query populate the json
 		myRow = {"year": year,"count": count, "loan_amount": amount}
 		row_data.insert(len(row_data),myRow)
