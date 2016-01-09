@@ -14,11 +14,11 @@ print "start time:", time.asctime(now)
 #variables
 myHost = "localhost"
 myPort = "5432"
-myUser = "feomike"
+myUser = "byrnem"
 db = "feomike"
 schema = "hmda"
 tb_pre = "ffiec"
-dPath = "/Users/feomike/documents/data/ffiec_hmda/"
+dPath = "/Users/byrnem/documents/data/hmda/"
 myComment = "created_on_12/24/2015_with_import_https://catalog.archives.gov/id/2456161?q=2456161"
 
 
@@ -506,8 +506,8 @@ theCur = conn.cursor()
 #1990 LAR has a utf-8 problem
 #the set of data on which to loop
 files = ["lar"] #"panel","ts","lar"]
-years = ["1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011"]
-years = ["2005","2006","2007","2008","2009","2010","2011"] 
+years = ["1990"] #,"1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011"]
+#years = ["2005","2006","2007","2008","2009","2010","2011"] 
 for file in files:
 	for year in years:
 		try:
