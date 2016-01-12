@@ -51,5 +51,9 @@ insert into hmda.tests (mywho, mywhat, mywhere, mywhen, myqry, myvalue ) values
 		from hmda.ffiec_lar_1997 where purchaser_type <> '0'));
 
 
-select * from hmda.tests;
-	
+
+
+
+
+
+

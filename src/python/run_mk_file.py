@@ -15,7 +15,7 @@ myUser = "byrnem"
 db = "feomike"
 schema = "hmda"
 #myTab is used as the unique list to drive which FIs are being run
-myTab = "ffiec_ts_2014"
+myTab = "rid_history"
 #myLar is used to get the unique set of geographies for this particular FI
 myLar = "ffiec_lar_2014"
 
@@ -23,12 +23,11 @@ myLar = "ffiec_lar_2014"
 #then cycles through every respondent ID and agency code in the result and fires of the
 #mk_file code; if myLoc = State, then it finds in which states this RID has LARs
 def runFIList(myQry, myLoc):
-	mySQL = "SELECT respondent_id, agency_code, respondent_name_ts "
+	mySQL = "SELECT respondent_id, agency_code, fi_name "
 	mySQL = mySQL + "FROM " + schema + "." + myTab + " "
-	#mySQL = mySQL + " where respondent_id = '7197000003'and agency_code = '7'; "
-	#mySQL = mySQL + " where respondent_id = '0000061650'and agency_code = '5'; "
-	#mySQL = mySQL + " where respondent_id = '0000004137'; "
-	mySQL = mySQL + " where (CAST(coalesce(lar_count,'0') as integer)) > 2000; "
+	mySQL = mySQL + "where hist_length > 14 and total > 15000 "
+	mySQL = mySQL + "order by total  desc limit 1; "
+
 	#execute the SQL string
 	theCur.execute(mySQL)
 	row_name = []
