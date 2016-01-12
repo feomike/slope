@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 547, "year": "2002"}, {"count": 1, "loan_amount": 260, "year": "2004"}, {"count": 3, "loan_amount": 515, "year": "2005"}, {"count": 1, "loan_amount": 415, "year": "2008"}, {"count": 3, "loan_amount": 736, "year": "2010"}]}, "FinancialInstitution": "Zions First National Bank", "loanType": "all", "location": "09"}

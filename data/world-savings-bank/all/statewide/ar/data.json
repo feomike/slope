@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 575, "year": "2002"}, {"count": 58, "loan_amount": 11920, "year": "2007"}, {"count": 327, "loan_amount": 59350, "year": "2008"}, {"count": 77, "loan_amount": 12399, "year": "2009"}]}, "FinancialInstitution": "World Savings Bank", "loanType": "all", "location": "05"}

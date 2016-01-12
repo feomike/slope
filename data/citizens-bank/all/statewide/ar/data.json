@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 2, "year": "1999"}, {"count": 1, "loan_amount": 25, "year": "2002"}, {"count": 1, "loan_amount": 288, "year": "2006"}, {"count": 1, "loan_amount": 165, "year": "2010"}]}, "FinancialInstitution": "Citizens Bank", "loanType": "all", "location": "05"}

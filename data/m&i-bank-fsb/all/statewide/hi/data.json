@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 17, "loan_amount": 595, "year": "2000"}, {"count": 2, "loan_amount": 225, "year": "2001"}, {"count": 2, "loan_amount": 92, "year": "2002"}, {"count": 6, "loan_amount": 32457, "year": "2007"}, {"count": 1, "loan_amount": 1980, "year": "2008"}]}, "FinancialInstitution": "M&I Bank Fsb", "loanType": "all", "location": "15"}

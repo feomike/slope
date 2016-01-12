@@ -17,7 +17,7 @@ schema = "hmda"
 #myTab is used as the unique list to drive which FIs are being run
 myTab = "rid_history"
 #myLar is used to get the unique set of geographies for this particular FI
-myLar = "ffiec_lar_2014"
+myLar = "ffiec_lar_2002"
 
 #this function gets the list of FIs on which to run; it makes a selection of the TS
 #then cycles through every respondent ID and agency code in the result and fires of the
@@ -26,7 +26,7 @@ def runFIList(myQry, myLoc):
 	mySQL = "SELECT respondent_id, agency_code, fi_name "
 	mySQL = mySQL + "FROM " + schema + "." + myTab + " "
 	mySQL = mySQL + "where hist_length > 14 and total > 15000 "
-	mySQL = mySQL + "order by total  desc limit 1; "
+	mySQL = mySQL + "order by total desc limit 150; "
 
 	#execute the SQL string
 	theCur.execute(mySQL)
@@ -41,8 +41,8 @@ def runFIList(myQry, myLoc):
 			myFI = "'" + myFI + "'" 
 			row_name.insert(len(row_name),row[2].strip().title()  )
 			#run the main script
-			print "		doing ... " + RID + " for " + myQry + " in " + myLoc
-			if myLoc == "All":
+			print "		doing ... " + myFI + " for " + myQry + " in " + myLoc
+			if myLoc == "all":
 				os.system("python mk_file.py " + RID + " " + myAC + " " + myFI + " " + "nationwide " + myQry)
 			if myLoc == "State":
 				runState(myQry, RID, myAC, myFI)
@@ -65,6 +65,7 @@ def runState(myQry, RID, myAC, myFI):
 	if stCur.rowcount > 0:
 		for strow in stCur:
 			myLoc = str(strow[0])
+			#print "      doing state: " + myLoc
 			os.system("python mk_file.py " + RID + " " + myAC + " " + myFI + " " + myLoc + " " + myQry)
 
 def writeNamesFile():
@@ -73,7 +74,7 @@ def writeNamesFile():
 	FIs = []
 	for myFile in listfiles:
 		if os.path.isdir(os.path.join(myPath, myFile)):
-			FIs.insert(len(FIs),myFile.title())
+			FIs.insert(len(FIs),myFile.title().replace("-"," ",10))
 	name_data = {"financialInstitutionNames":FIs}
 	with open(myPath + "/fi.json", 'w') as outfile:
 	    json.dump(name_data, outfile)
@@ -103,8 +104,8 @@ queries = ["all","single-family","refi","home-improvement","purchased-loan"]
 for qry in queries:
 	#runAll(qry, "All")
 	#runAll(qry, "State")
-	runFIList(qry, "All")
-	#runFIList(qry, "State")
+	#runFIList(qry, "all")
+	runFIList(qry, "State")
 writeNamesFile()
 
 theCur.close()

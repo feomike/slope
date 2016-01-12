@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 19, "loan_amount": 1222, "year": "1994"}, {"count": 2, "loan_amount": 157, "year": "1995"}, {"count": 3, "loan_amount": 500, "year": "2002"}, {"count": 1, "loan_amount": 105, "year": "2003"}]}, "FinancialInstitution": "Central Pacific Mortgage", "loanType": "all", "location": "20"}

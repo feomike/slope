@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 2, "loan_amount": 574, "year": "2002"}, {"count": 3, "loan_amount": 613, "year": "2003"}, {"count": 3, "loan_amount": 254, "year": "2004"}, {"count": 1, "loan_amount": 280, "year": "2006"}]}, "FinancialInstitution": "Sky Bank", "loanType": "all", "location": "01"}

@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 6, "year": "1997"}, {"count": 6, "loan_amount": 347, "year": "2006"}, {"count": 198, "loan_amount": 10416, "year": "2007"}, {"count": 1, "loan_amount": 65, "year": "2013"}]}, "FinancialInstitution": "First State Bank", "loanType": "purchased-loan", "location": "nationwide"}

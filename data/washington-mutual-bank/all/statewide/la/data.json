@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 63, "loan_amount": 3966, "year": "1999"}, {"count": 174, "loan_amount": 25182, "year": "2002"}, {"count": 209, "loan_amount": 26920, "year": "2003"}, {"count": 272, "loan_amount": 32598, "year": "2004"}]}, "FinancialInstitution": "Washington Mutual Bank", "loanType": "all", "location": "22"}

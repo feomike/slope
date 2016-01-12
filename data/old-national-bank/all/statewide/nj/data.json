@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 2, "loan_amount": 520, "year": "2000"}, {"count": 1, "loan_amount": 300, "year": "2002"}, {"count": 1, "loan_amount": 365, "year": "2007"}, {"count": 1, "loan_amount": 125, "year": "2011"}]}, "FinancialInstitution": "Old National Bank", "loanType": "all", "location": "34"}

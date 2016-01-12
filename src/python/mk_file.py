@@ -101,7 +101,7 @@ def returnState(myFIPS):
 	   "24":"md","26":"mi","29":"mo","30":"mt","38":"nd","31":"ne","33":"nh","37":"nc",
 	   "34":"nj","35":"nm","32":"nv","36":"ny","39":"oh","40":"ok","41":"or","42":"pa",
 	   "44":"ri","45":"sc","46":"sd","47":"tn","48":"tx","49":"ut","51":"va",
-	   "50":"vt","53":"wa","55":"wi","54":"wv","56":"wy"
+	   "50":"vt","53":"wa","55":"wi","54":"wv","56":"wy","72":"pr","66":"gu"
 	   }
 	state = states[myFIPS]
 	return state
@@ -126,7 +126,8 @@ for year in years:
 	amount = returnData(amtSQL)
 	#after you run the query populate the json
 	myRow = {"year": year,"count": count, "loan_amount": amount}
-	row_data.insert(len(row_data),myRow)
+	if count > 0:
+		row_data.insert(len(row_data),myRow)
 #write out the data
 year_data["years"] = row_data
 data["data"] = year_data

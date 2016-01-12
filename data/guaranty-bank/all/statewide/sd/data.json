@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 99, "year": "1996"}, {"count": 1, "loan_amount": 64, "year": "2002"}, {"count": 1, "loan_amount": 109, "year": "2004"}, {"count": 6, "loan_amount": 682, "year": "2005"}]}, "FinancialInstitution": "Guaranty Bank", "loanType": "all", "location": "46"}

@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 2, "loan_amount": 146, "year": "1999"}, {"count": 2, "loan_amount": 143, "year": "2000"}, {"count": 3, "loan_amount": 287, "year": "2001"}, {"count": 1, "loan_amount": 92, "year": "2002"}, {"count": 1, "loan_amount": 130, "year": "2003"}]}, "FinancialInstitution": "Pulte Mortgage Corporation", "loanType": "all", "location": "56"}

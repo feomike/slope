@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 7, "year": "2001"}, {"count": 8, "loan_amount": 1241, "year": "2002"}, {"count": 46, "loan_amount": 8464, "year": "2003"}, {"count": 1, "loan_amount": 148, "year": "2004"}]}, "FinancialInstitution": "The Patapsco Bank", "loanType": "purchased-loan", "location": "nationwide"}

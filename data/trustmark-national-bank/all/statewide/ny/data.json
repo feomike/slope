@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 50, "year": "1997"}, {"count": 1, "loan_amount": 225, "year": "2000"}, {"count": 1, "loan_amount": 30, "year": "2002"}, {"count": 1, "loan_amount": 9, "year": "2003"}]}, "FinancialInstitution": "Trustmark National Bank", "loanType": "all", "location": "36"}

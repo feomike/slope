@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 640, "year": "2001"}, {"count": 1, "loan_amount": 242, "year": "2002"}, {"count": 1, "loan_amount": 336, "year": "2005"}, {"count": 3, "loan_amount": 495, "year": "2009"}, {"count": 3, "loan_amount": 773, "year": "2010"}]}, "FinancialInstitution": "Compass Bank", "loanType": "all", "location": "02"}

@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 60, "year": "2000"}, {"count": 1, "loan_amount": 122, "year": "2002"}, {"count": 4, "loan_amount": 429, "year": "2003"}, {"count": 12, "loan_amount": 993, "year": "2004"}, {"count": 1, "loan_amount": 116, "year": "2005"}]}, "FinancialInstitution": "Comunity Lending Incorporated", "loanType": "all", "location": "31"}

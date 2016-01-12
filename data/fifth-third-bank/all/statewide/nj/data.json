@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 2, "loan_amount": 98, "year": "1996"}, {"count": 1, "loan_amount": 8, "year": "2001"}, {"count": 3, "loan_amount": 1016, "year": "2002"}, {"count": 2, "loan_amount": 3200, "year": "2003"}, {"count": 1, "loan_amount": 500, "year": "2004"}]}, "FinancialInstitution": "Fifth Third Bank", "loanType": "all", "location": "34"}

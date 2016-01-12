@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 2, "loan_amount": 100, "year": "2002"}, {"count": 5, "loan_amount": 555, "year": "2005"}, {"count": 6, "loan_amount": 633, "year": "2006"}, {"count": 1, "loan_amount": 30, "year": "2007"}]}, "FinancialInstitution": "Commerce Bank Na", "loanType": "all", "location": "53"}

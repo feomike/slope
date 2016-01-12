@@ -1,0 +1,1 @@
+{"type": "line", "data": {"years": [{"count": 1, "loan_amount": 7, "year": "2002"}, {"count": 53, "loan_amount": 929, "year": "2004"}, {"count": 35, "loan_amount": 561, "year": "2005"}, {"count": 41, "loan_amount": 612, "year": "2006"}, {"count": 30, "loan_amount": 511, "year": "2007"}]}, "FinancialInstitution": "Keybank National Association", "loanType": "all", "location": "38"}
