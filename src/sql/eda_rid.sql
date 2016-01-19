@@ -88,8 +88,9 @@ update hmda.rid_history set hist_length = hist_length - 1 where count_2014 = 0;
 
 --15*1000 = 15,000
 alter table hmda.rid_history add column total integer;
-update hmda.rid_history set total = count_1990 + count_1991 + count_1992 + count_1993 + count_1994 + count_1995 + count_1995 + 
-	count_1996 + count_1997 + count_1998 + count_1999 + count_2000 + count_2001 + count_2002 + count_2003 + count_2004 +
-	count_2005 + count_2006 + count_2007 + count_2008 + count_2009 + count_2010 + count_2011 + count_2012 + count_2013 + count_2014;
+update hmda.rid_history set total = count_1990 + count_1991 + count_1992 + count_1993 + count_1994 + count_1995 + count_1996 + 
+	count_1997 + count_1998 + count_1999 + count_2000 + count_2001 + count_2002 + count_2003 + count_2004 +
+	count_2005 + count_2006 + count_2007 + count_2008 + count_2009 + count_2010 + count_2011 + count_2012 + 
+	count_2013 + count_2014;
 
 

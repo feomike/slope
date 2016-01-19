@@ -11,7 +11,7 @@ print "start time:", time.asctime(now)
 #connection variables
 myHost = "localhost"
 myPort = "5432"
-myUser = "byrnem"
+myUser = "feomike"
 db = "feomike"
 schema = "hmda"
 outTB = "rid_history"
@@ -51,7 +51,7 @@ def mkTB():
 	mySQL = mySQL + "count_2013 integer, "
 	mySQL = mySQL + "count_2014 integer ) "
 	mySQL = mySQL + "WITH ( OIDS=TRUE ); "
-	mySQL = mySQL + "ALTER TABLE " + schema + "." + outTB + " OWNER TO byrnem; "
+	mySQL = mySQL + "ALTER TABLE " + schema + "." + outTB + " OWNER TO feomike; "
 	mySQL = mySQL + "COMMENT ON TABLE hmda.rid_history "
 	mySQL = mySQL + "IS 'created_on_01/11/2016 based of 2014_ts to support time series analysis'; COMMIT; "
 	#execute the SQL string

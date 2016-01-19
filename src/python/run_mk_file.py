@@ -11,7 +11,7 @@ print "start time:", time.asctime(now)
 #connection variables
 myHost = "localhost"
 myPort = "5432"
-myUser = "byrnem"
+myUser = "feomike"
 db = "feomike"
 schema = "hmda"
 #myTab is used as the unique list to drive which FIs are being run
@@ -101,11 +101,13 @@ def runAll(myQry, myLoc):
 
 queries = ["all","single-family","refi","home-improvement","purchased-loan"]
 #queries = ["all"]
+queries = ["single-family-white","single-family-black"]
+queries = ["denials-white","denials-black"] #"denials"] #,"
 for qry in queries:
-	#runAll(qry, "All")
+	runAll(qry, "All")
 	#runAll(qry, "State")
 	#runFIList(qry, "all")
-	runFIList(qry, "State")
+	#runFIList(qry, "State")
 writeNamesFile()
 
 theCur.close()

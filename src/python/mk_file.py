@@ -13,7 +13,7 @@ theQry = sys.argv[5]
 #connection variables
 myHost = "localhost"
 myPort = "5432"
-myUser = "byrnem"
+myUser = "feomike"
 db = "feomike"
 schema = "hmda"
 pre_tab = "ffiec_lar"
@@ -34,6 +34,9 @@ def finalSQL (myType, myYear):
 		mySQL = "SELECT sum(CAST(coalesce(loan_amount, '0') AS integer)) FROM "
 	#build the from statement
 	mySQL = mySQL + schema + "." + pre_tab + "_" + myYear + " "
+	
+	#if RID.type is a list, then cycle through the list
+	
 	#if it has an RID, then it is an FI, and needs a who where clause
 	if RID <> "-9":
 		mySQL = mySQL + "WHERE respondent_id = '" + RID 
@@ -52,11 +55,24 @@ def finalSQL (myType, myYear):
 		mySQL = mySQL + " and action_type = '1' and loan_purpose = '2' "
 	if theQry == "purchased-loan":
 		mySQL = mySQL + " and purchaser_type <> '0' "
-
+	if theQry == "single-family-white":
+		mySQL = mySQL + " and action_type = '1' and loan_purpose = '1' and occupancy = '1' "
+		mySQL = mySQL + " and (applicant_race_1 = '5' or co_applicant_race_1 = '5') "
+	if theQry == "single-family-black":
+		mySQL = mySQL + " and action_type = '1' and loan_purpose = '1' and occupancy = '1' "
+		mySQL = mySQL + " and (applicant_race_1 = '3' or co_applicant_race_1 = '3') "
+	if theQry == "denials":
+		mySQL = mySQL + " and denial_reason_1 in ('1','2','3','4','5','6','7','8','9') "
+	if theQry == "denials-white":
+		mySQL = mySQL + " and denial_reason_1 in ('1','2','3','4','5','6','7','8','9') "
+		mySQL = mySQL + " and (applicant_race_1 = '5' or co_applicant_race_1 = '5') "
+	if theQry == "denials-black":
+		mySQL = mySQL + " and denial_reason_1 in ('1','2','3','4','5','6','7','8','9') "
+		mySQL = mySQL + " and (applicant_race_1 = '3' or co_applicant_race_1 = '3') "	
 	#if location
 	if len(theLoc) == 2:
 		mySQL = mySQL + " and state_code = '" + theLoc + "'"
-
+	#print mySQL
 	return mySQL
 
 #this function returns the the value of the query
@@ -120,6 +136,7 @@ data = {}
 year_data = {}
 row_data = []
 for year in years:
+	#print "doing year: " + year
 	cntSQL = finalSQL ("count", year)
 	count = returnData(cntSQL)
 	amtSQL = finalSQL ("amount", year)
@@ -142,6 +159,7 @@ if theFI == "-9":
 else:
 	who = theFI.replace(" ", "-").lower()
 thePath = "../../data/" + who + "/" + theQry + "/" + theLoc
+thePath = thePath.lower()
 #see if the directory exists, if not, create it
 #if so, overwrite the file
 if not os.path.exists(thePath):
